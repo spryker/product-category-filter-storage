@@ -1,11 +1,15 @@
-# Spryker Commerce OS
+# ProductCategoryFilterStorage Module
+[![Build Status](https://travis-ci.org/spryker/ProductCategoryFilterStorage.svg)](https://travis-ci.org/spryker/ProductCategoryFilterStorage)
+[![Coverage Status](https://coveralls.io/repos/github/spryker/ProductCategoryFilterStorage/badge.svg)](https://coveralls.io/github/spryker/ProductCategoryFilterStorage)
 
-## Core Modules
+{{ADD DESCRIPTION HERE}}
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spryker/spryker-core/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/spryker/spryker-core/?branch=master)
+## Installation
 
-### Links
-- **[Spryker Documentation](https://academy.spryker.com/)**
-- [Spryker Architecture-Sniffer](https://github.com/spryker/architecture-sniffer)
-- [Spryker Code-Sniffer](https://github.com/spryker/code-sniffer)
-- [Spryker Code-Generator](https://github.com/spryker/code-generator)
+```
+composer require spryker/product-category-filter-storage
+```
+
+## Documentation
+
+[Spryker Documentation](https://academy.spryker.com/developing_with_spryker/module_guide/modules.html)
