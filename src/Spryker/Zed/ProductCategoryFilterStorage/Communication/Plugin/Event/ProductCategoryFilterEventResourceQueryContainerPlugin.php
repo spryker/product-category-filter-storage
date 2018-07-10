@@ -19,7 +19,7 @@ use Spryker\Zed\ProductCategoryFilter\Dependency\ProductCategoryFilterEvents;
  * @method \Spryker\Zed\ProductCategoryFilterStorage\Business\ProductCategoryFilterStorageFacadeInterface getFacade()
  * @method \Spryker\Zed\ProductCategoryFilterStorage\Communication\ProductCategoryFilterStorageCommunicationFactory getFactory()
  */
-class ProductCategoryFilterEventResourcePlugin extends AbstractPlugin implements EventResourceQueryContainerPluginInterface
+class ProductCategoryFilterEventResourceQueryContainerPlugin extends AbstractPlugin implements EventResourceQueryContainerPluginInterface
 {
     /**
      * Specification:
