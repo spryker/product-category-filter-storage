@@ -34,9 +34,6 @@ use SprykerTest\Zed\ProductCategoryFilterStorage\ProductCategoryFilterStorageCon
  */
 class ProductCategoryFilterStorageListenerTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testProductCategoryFilterPublishStorageListenerStoreData(): void
     {
         $productCategoryFilterFacade = new ProductCategoryFilterFacade();
@@ -68,9 +65,6 @@ class ProductCategoryFilterStorageListenerTest extends Unit
         $this->assertProductCategoryFilterStorage($beforeCount);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductCategoryFilterStorage\Business\ProductCategoryFilterStorageFacade
-     */
     protected function getProductCategoryFilterStorageFacade(): ProductCategoryFilterStorageFacade
     {
         $factory = new ProductCategoryFilterStorageBusinessFactory();
@@ -82,11 +76,6 @@ class ProductCategoryFilterStorageListenerTest extends Unit
         return $facade;
     }
 
-    /**
-     * @param int $beforeCount
-     *
-     * @return void
-     */
     protected function assertProductCategoryFilterStorage(int $beforeCount): void
     {
         $productCategoryFilterStorageCount = SpyProductCategoryFilterStorageQuery::create()->count();
