@@ -40,4 +40,14 @@ class ProductCategoryFilterStorageConfig extends AbstractBundleConfig
      * @var string
      */
     public const PRODUCT_CATEGORY_FILTER_RESOURCE_NAME = 'product_category_filter';
+
+    /**
+     * Specification:
+     * - Queue name used for product category filter publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_PRODUCT_CATEGORY_FILTER_QUEUE = 'publish.product_category_filter';
 }
