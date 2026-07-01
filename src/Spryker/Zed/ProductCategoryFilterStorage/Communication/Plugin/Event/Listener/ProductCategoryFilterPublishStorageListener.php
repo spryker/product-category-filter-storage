@@ -29,8 +29,33 @@ class ProductCategoryFilterPublishStorageListener extends AbstractPlugin impleme
      */
     public function handleBulk(array $eventEntityTransfers, $eventName)
     {
-        $categoryIds = $this->getFactory()->getEventBehaviorFacade()->getEventTransferForeignKeys($eventEntityTransfers, SpyProductCategoryFilterTableMap::COL_FK_CATEGORY);
+        $eventBehaviorFacade = $this->getFactory()->getEventBehaviorFacade();
 
-        $this->getFacade()->publish($categoryIds);
+        $categoryIds = $eventBehaviorFacade->getEventTransferForeignKeys($eventEntityTransfers, SpyProductCategoryFilterTableMap::COL_FK_CATEGORY);
+
+        // Events re-triggered via `publish:trigger-events` carry only the primary key and no foreign keys,
+        // so resolve the category ids from the product category filter ids in that case.
+        $productCategoryFilterIds = $eventBehaviorFacade->getEventTransferIds($eventEntityTransfers);
+        $categoryIds = array_merge($categoryIds, $this->getCategoryIdsByProductCategoryFilterIds($productCategoryFilterIds));
+
+        $this->getFacade()->publish(array_values(array_unique($categoryIds)));
+    }
+
+    /**
+     * @param array<int> $productCategoryFilterIds
+     *
+     * @return array<int>
+     */
+    protected function getCategoryIdsByProductCategoryFilterIds(array $productCategoryFilterIds): array
+    {
+        if ($productCategoryFilterIds === []) {
+            return [];
+        }
+
+        return $this->getQueryContainer()
+            ->queryProductCategoryByCategoryFilterIds($productCategoryFilterIds)
+            ->select(SpyProductCategoryFilterTableMap::COL_FK_CATEGORY)
+            ->find()
+            ->getData();
     }
 }
