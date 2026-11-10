@@ -7,9 +7,9 @@
 
 namespace Spryker\Shared\ProductCategoryFilterStorage;
 
-use Spryker\Shared\Kernel\AbstractBundleConfig;
+use Spryker\Shared\Kernel\AbstractSharedConfig;
 
-class ProductCategoryFilterStorageConfig extends AbstractBundleConfig
+class ProductCategoryFilterStorageConfig extends AbstractSharedConfig
 {
     /**
      * Specification:
